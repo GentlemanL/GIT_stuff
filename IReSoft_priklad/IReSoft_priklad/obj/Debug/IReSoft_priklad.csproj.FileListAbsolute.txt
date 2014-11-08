@@ -7,3 +7,6 @@ E:\ostatbe\C#\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.Properti
 E:\ostatbe\C#\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.csproj.GenerateResource.Cache
 E:\ostatbe\C#\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.exe
 E:\ostatbe\C#\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.pdb
+E:\ostatbe\GIT_stuff\IReSoft_priklad\IReSoft_priklad\bin\Debug\IReSoft_priklad.exe.config
+E:\ostatbe\GIT_stuff\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.exe
+E:\ostatbe\GIT_stuff\IReSoft_priklad\IReSoft_priklad\obj\Debug\IReSoft_priklad.pdb
