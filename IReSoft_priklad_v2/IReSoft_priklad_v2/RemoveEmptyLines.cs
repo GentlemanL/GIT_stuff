@@ -26,9 +26,9 @@ namespace IReSoft_priklad_v2
                     if (!(i == s.Length - 1 && s[i] == '\n'))
                     {
                         returnString += s[i];
-                        setProgres(s[i], tmp);
                     }
                 }
+                setProgres(s[i], tmp);
             }
             return returnString;
         }

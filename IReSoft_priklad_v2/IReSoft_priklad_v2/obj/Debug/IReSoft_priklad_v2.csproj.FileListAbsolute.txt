@@ -8,3 +8,10 @@ E:\ostatbe\C#\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2
 E:\ostatbe\C#\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.pdb
 E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\bin\Debug\IReSoft_priklad_v2.exe.config
 E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.exe
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\bin\Debug\IReSoft_priklad_v2.exe
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\bin\Debug\IReSoft_priklad_v2.pdb
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.csprojResolveAssemblyReference.cache
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.Properties.Resources.resources
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.csproj.GenerateResource.Cache
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.pdb
+E:\ostatbe\GIT_stuff\IReSoft_priklad_v2\IReSoft_priklad_v2\obj\Debug\IReSoft_priklad_v2.Form1.resources

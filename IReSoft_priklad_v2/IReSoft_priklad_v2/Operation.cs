@@ -21,7 +21,8 @@ namespace IReSoft_priklad_v2
             }
         }
 
-        protected virtual void setProgres(char currentChar, char previousChar)
+        // mozno ju nechat normalne naimplementovanu a nepouzivat ani virtual
+        protected /*virtual*/ void setProgres(char currentChar, char previousChar)
         {
             lock (pr)
             {

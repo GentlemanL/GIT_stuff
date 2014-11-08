@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace IReSoft_priklad_v2
 {
+    // tato trieda sluzi len ako udrzovanie premenych o stave
     public class Progress
     {
         //private Progress pr;
