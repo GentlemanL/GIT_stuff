@@ -9,11 +9,12 @@ namespace IReSoft_priklad_v2
 {
     public class Execute
     {
-        //Thread thread;
 
-        public void runOperation(Operation op, string s)
+        public string /*void*/ runOperation(Operation op, string s)
         {
-            Thread thread = new Thread(() => op.Run(s));
+            //Thread thread = new Thread(() => op.Run(s));
+            string v = op.Run(s);
+            return v;
         }
     }
 }

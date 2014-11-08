@@ -27,7 +27,7 @@ namespace IReSoft_priklad_v2
         private string fileText;
         private string path;
         private Execute ex;
-        private RemoveDiacritics rd;
+        private RemoveDiacritics rd = new RemoveDiacritics();
         private RemoveEmptyLines rel;
         private RemoveSpacesAndPunctuation rsap;
         //private int numOfLines, numOfWords, numOfChars, numOfSentences;
@@ -68,7 +68,7 @@ namespace IReSoft_priklad_v2
         private void buttonCopy_Click(object sender, EventArgs e)
         {
             createCopy();
-            MessageBox.Show("Vystup sa vytvoril v adresari otvoreneho txt suboru s povodnym znenim a pridanym stringom \n '- vystup'.");
+            MessageBox.Show("Vystup sa vytvoril v adresari otvoreneho txt suboru s povodnym znenim a pridanym stringom '- vystup'.");
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -80,11 +80,15 @@ namespace IReSoft_priklad_v2
         {
             if (checkBoxDiacritics.Checked)
             {
-                ex.runOperation(rd, fileText);
+                textBoxKontrola.Text = ex.runOperation(rd, fileText);
             }
-            if (checkBoxEmptyLines)
+            if (checkBoxEmptyLines.Checked)
             {
-                
+                textBoxKontrola.Text = ex.runOperation(rel, fileText);
+            }
+            if (checkBoxSpacesAndPunctuation.Checked)
+            {
+                textBoxKontrola.Text = ex.runOperation(rsap, fileText);
             }
         }
 

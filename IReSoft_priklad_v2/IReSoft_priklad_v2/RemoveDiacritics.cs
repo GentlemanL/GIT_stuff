@@ -9,6 +9,10 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveDiacritics : Operation
     {
+        public RemoveDiacritics()
+        {
+
+        }
         public override string Run(string s)
         {
             s = s.Normalize(NormalizationForm.FormD);

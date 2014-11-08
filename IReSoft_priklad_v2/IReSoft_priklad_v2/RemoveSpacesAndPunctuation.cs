@@ -23,7 +23,7 @@ namespace IReSoft_priklad_v2
 
             for (int i = 0; i < s.Length; i++)
             {
-                if (!char.IsPunctuation(s[i]) && !(s[i] == ' '))
+                if (!char.IsPunctuation(s[i]) && !(s[i] == ' ')) //
                 {
                     returnString += s[i];
                     if (i > 1) { tmp = s[i - 1]; }

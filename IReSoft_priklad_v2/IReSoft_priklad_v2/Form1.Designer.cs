@@ -43,7 +43,7 @@
             this.labelPocetSlov = new System.Windows.Forms.Label();
             this.buttonCopy = new System.Windows.Forms.Button();
             this.buttonAplikujNastavenia = new System.Windows.Forms.Button();
-            this.checkBoxMedzeryInterpunkcia = new System.Windows.Forms.CheckBox();
+            this.checkBoxSpacesAndPunctuation = new System.Windows.Forms.CheckBox();
             this.checkBoxEmptyLines = new System.Windows.Forms.CheckBox();
             this.checkBoxDiacritics = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.panel1.Controls.Add(this.labelPocetSlov);
             this.panel1.Controls.Add(this.buttonCopy);
             this.panel1.Controls.Add(this.buttonAplikujNastavenia);
-            this.panel1.Controls.Add(this.checkBoxMedzeryInterpunkcia);
+            this.panel1.Controls.Add(this.checkBoxSpacesAndPunctuation);
             this.panel1.Controls.Add(this.checkBoxEmptyLines);
             this.panel1.Controls.Add(this.checkBoxDiacritics);
             this.panel1.Controls.Add(this.label1);
@@ -197,13 +197,13 @@
             // 
             // checkBoxMedzeryInterpunkcia
             // 
-            this.checkBoxMedzeryInterpunkcia.AutoSize = true;
-            this.checkBoxMedzeryInterpunkcia.Location = new System.Drawing.Point(13, 111);
-            this.checkBoxMedzeryInterpunkcia.Name = "checkBoxMedzeryInterpunkcia";
-            this.checkBoxMedzeryInterpunkcia.Size = new System.Drawing.Size(136, 17);
-            this.checkBoxMedzeryInterpunkcia.TabIndex = 13;
-            this.checkBoxMedzeryInterpunkcia.Text = "Medzery a interpunkciu";
-            this.checkBoxMedzeryInterpunkcia.UseVisualStyleBackColor = true;
+            this.checkBoxSpacesAndPunctuation.AutoSize = true;
+            this.checkBoxSpacesAndPunctuation.Location = new System.Drawing.Point(13, 111);
+            this.checkBoxSpacesAndPunctuation.Name = "checkBoxMedzeryInterpunkcia";
+            this.checkBoxSpacesAndPunctuation.Size = new System.Drawing.Size(136, 17);
+            this.checkBoxSpacesAndPunctuation.TabIndex = 13;
+            this.checkBoxSpacesAndPunctuation.Text = "Medzery a interpunkciu";
+            this.checkBoxSpacesAndPunctuation.UseVisualStyleBackColor = true;
             // 
             // checkBoxPrazdneRiadky
             // 
@@ -308,7 +308,7 @@
         private System.Windows.Forms.Label labelPocetSlov;
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonAplikujNastavenia;
-        private System.Windows.Forms.CheckBox checkBoxMedzeryInterpunkcia;
+        private System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
         private System.Windows.Forms.CheckBox checkBoxEmptyLines;
         private System.Windows.Forms.CheckBox checkBoxDiacritics;
         private System.Windows.Forms.Label label1;
