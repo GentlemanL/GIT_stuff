@@ -82,11 +82,12 @@ namespace IReSoft_priklad_v2
 
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
-            buttonAplikujNastavenia.Enabled = false;
+            /*buttonAplikujNastavenia.Enabled = false;
             foreach (var item in checkBoxes)
             {
                 item.Enabled = false;
-            }
+            }*/
+            panel1.Enabled = false;
 
             if (inputText.Length != 0)
             {

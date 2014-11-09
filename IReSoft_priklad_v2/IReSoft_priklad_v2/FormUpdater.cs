@@ -32,8 +32,8 @@ namespace IReSoft_priklad_v2
             
             if (p.progressBarValue == 100)
             {
-                MethodInvoker action = () => form.checkBoxDiacritics.Enabled = true;
-                form.checkBoxDiacritics.BeginInvoke(action);
+                MethodInvoker action = () => form.panel1.Enabled = true;
+                form.panel1.BeginInvoke(action);
             }
         }
 
