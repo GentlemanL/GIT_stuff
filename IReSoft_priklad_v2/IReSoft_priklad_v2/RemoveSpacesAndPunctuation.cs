@@ -16,7 +16,7 @@ namespace IReSoft_priklad_v2
             char tmp = s[0];
 
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-            textInfo.ToTitleCase(s);
+            s = textInfo.ToTitleCase(s);
 
             //iba jedna operacia - asi nepouzitelne
             //string x = new string(s.Where(c => !char.IsPunctuation(c) || char.IsWhiteSpace(c)).ToArray());
@@ -26,8 +26,9 @@ namespace IReSoft_priklad_v2
                 if (!char.IsPunctuation(s[i]) && !(s[i] == ' ')) //
                 {
                     returnString += s[i];
-                    if (i > 1) { tmp = s[i - 1]; }
                 }
+
+                if (i > 1) { tmp = s[i - 1]; }
                 setProgres(s[i], tmp, u);
             }
             return returnString;

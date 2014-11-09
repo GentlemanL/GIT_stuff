@@ -14,7 +14,12 @@ namespace IReSoft_priklad_v2
         protected Progress pr = new Progress();
         //protected Form1 form;
 
+
+        private bool flag = true;
+        private bool enter = true;
+
         public abstract string Run(string s, IUpdater u);
+
        /* public Progress GetProgress()
         {
             lock (pr)
@@ -30,21 +35,48 @@ namespace IReSoft_priklad_v2
             //lock (pr)
             //{
                 pr.numOfChars++;
-                //SetControlPropertyThreadSafe(form.labelPocetZnakov, "Text", pr.numOfChars.ToString());
+                //osetrit pocitanie slov, neratam slova za ktorymi neni medzera
+                // treba osetrit viac interpunkcnych znamienok po sebe 
                 if (currentChar == '.' || currentChar == '?' || currentChar == '!')
                 {
                     pr.numOfSentences++;
+                    if (!flag)
+                    {
+                        flag = true;
+                    }
+                    else
+                    {
+                        flag = false;
+                        pr.numOfWords++;
+                    }
                 }
                 if (currentChar == '\n')
                 {
                     pr.numOfLines++;
+                    if (enter)
+                    {
+                        enter = false;
+
+                        if (!flag)
+                        {
+                            flag = true;
+                        }
+                        else
+                        {
+                            flag = false;
+                            pr.numOfWords++;
+                        }
+                    }
                 }
                 if (currentChar == ' ' && !(previousChar == ' ')) // co ak mam 10 medzier za sebou!? osetrit, tato podmienka neni dobra -- mozno posielat posledne 2 cahraktery
                 {
-                    pr.numOfWords++;
+                    if (flag) { pr.numOfWords++; }
+                    else { flag = true; }
+
                 }
                 update.update(pr);
             //}
+            
         }
     }
 }

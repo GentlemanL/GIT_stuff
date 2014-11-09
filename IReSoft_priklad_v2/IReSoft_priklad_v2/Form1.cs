@@ -31,7 +31,7 @@ namespace IReSoft_priklad_v2
         private string path;
         private Thread thread;
         private Execute ex;
-        private IOperation rd = new RemoveDiacritics();
+        private IOperation rd;
         private IOperation rel;
         private IOperation rsap;
         //private int numOfLines, numOfWords, numOfChars, numOfSentences;
@@ -82,31 +82,38 @@ namespace IReSoft_priklad_v2
         
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
-            updateStuff();
-            //textBoxKontrola.Text = editedText;
-        }
-
-        private void updateStuff()
-        {
-            thread = new Thread(() =>
+            if (inputText.Length != 0)
             {
-                if (checkBoxDiacritics.Checked)
+                //pomenil som edited text na inputtext
+                thread = new Thread(() =>
                 {
                     ex = new Execute();
-                    editedText = ex.runOperation(rd, inputText, new FormUpdater(this));
-                    SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
-                }
-               /* if (checkBoxEmptyLines.Checked)
-                {
-                    textBoxKontrola.Text = ex.runOperation(rel, inputText, this);
-                }
-                if (checkBoxSpacesAndPunctuation.Checked)
-                {
-                    textBoxKontrola.Text = ex.runOperation(rsap, inputText, this);
-                }*/
-            });
-
-            thread.Start();
+                    if (checkBoxDiacritics.Checked)
+                    {
+                        rd = new RemoveDiacritics();
+                        editedText = ex.runOperation(rd, inputText, new FormUpdater(this));
+                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                    }
+                    if (checkBoxEmptyLines.Checked)
+                    {
+                        rel = new RemoveEmptyLines();
+                        editedText = ex.runOperation(rel, inputText, new FormUpdater(this));
+                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                    }
+                    if (checkBoxSpacesAndPunctuation.Checked)
+                    {
+                        rsap = new RemoveSpacesAndPunctuation();
+                        editedText = ex.runOperation(rsap, inputText, new FormUpdater(this));
+                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                    }
+                });
+                thread.Start();
+            }
+            else
+            {
+                MessageBox.Show("File is empty! Select another file.");
+            } 
+            
         }
 
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);

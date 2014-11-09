@@ -259,7 +259,7 @@
             this.textBoxKontrola.Location = new System.Drawing.Point(0, 0);
             this.textBoxKontrola.Multiline = true;
             this.textBoxKontrola.Name = "textBoxKontrola";
-            this.textBoxKontrola.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxKontrola.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxKontrola.Size = new System.Drawing.Size(438, 380);
             this.textBoxKontrola.TabIndex = 0;
             // 

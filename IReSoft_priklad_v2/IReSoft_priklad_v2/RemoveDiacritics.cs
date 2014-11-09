@@ -11,9 +11,10 @@ namespace IReSoft_priklad_v2
     {
         public override string Run(string s, IUpdater u)
         {
+            // normalizacia sposobi ze mekcene a ciarky sa rataju ako dalsi znak
             s = s.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
-            char tmp = s[0];
+            //char tmp = s[0];
 
             for (int i = 0; i < s.Length; i++)
             {
@@ -22,7 +23,7 @@ namespace IReSoft_priklad_v2
                     sb.Append(s[i]);
 
                     // treba kvoli kontrole viacerych medzier
-                    if (i > 1) tmp = s[i - 1];
+                    //if (i > 1) tmp = s[i - 1];
                 }
                 if (i == 0)
                 {

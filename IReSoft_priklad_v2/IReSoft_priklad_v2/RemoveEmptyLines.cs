@@ -10,25 +10,25 @@ namespace IReSoft_priklad_v2
     {
         public override string Run(string s, IUpdater u)
         {
-            // odstranovanie nadbytocnych \n
-            char tmp = s[0];
-            string returnString = string.Empty; 
+            string returnString = string.Empty;
+            char tmp1 = s[0];
+            char tmp2 = s[0];
             for (int i = 0; i < s.Length; i++)
             {
-                if (i > 1) { tmp = s[i - 1]; }
-                if (s[i] == '\n' && tmp == '\n')
-                {
-                    continue;
-                }
+                if (i > 1) { tmp1 = s[i - 1]; }
+                if (i > 2) { tmp2 = s[i - 2]; }
+                if (s[i] == '\r' && tmp1 == '\n' && (/*tmp2 == '\r' || */tmp2 == '\n')) { setProgres(s[i], tmp1, u); continue; }
+                else if (s[i] == '\n' && tmp1 == '\r' && (/*tmp2 == '\r' || */tmp2 == '\n')) { setProgres(s[i], tmp1, u); continue; }
                 else
                 {
-                    // ak je posledny znak '\n' tak ho to odstrani
-                    if (!(i == s.Length - 1 && s[i] == '\n'))
-                    {
-                        returnString += s[i];
-                    }
+                    returnString += s[i];
                 }
-                setProgres(s[i], tmp, u);
+
+                if (i == s.Length - 2 && (s[i - 1] == '\r'))
+                {
+                    returnString.TrimEnd('\r', '\n');
+                }
+                setProgres(s[i], tmp1, u);
             }
             return returnString;
         }
