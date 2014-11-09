@@ -13,8 +13,6 @@ namespace IReSoft_priklad_v2
         public override string Run(string s, IUpdater u)
         {
             string returnString = string.Empty;
-            char tmp = s[0];
-
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             s = textInfo.ToTitleCase(s);
 
@@ -24,9 +22,7 @@ namespace IReSoft_priklad_v2
                 {
                     returnString += s[i];
                 }
-
-                if (i > 1) { tmp = s[i - 1]; }
-                setProgres(s[i], tmp, u);
+                setProgres(s, i, u);
             }
             return returnString;
         }

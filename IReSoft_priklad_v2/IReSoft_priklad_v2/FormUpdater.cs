@@ -25,14 +25,17 @@ namespace IReSoft_priklad_v2
             updateContorlProperty(form.labelPocetZnakov, "Text", "Pocet znakov: " + p.numOfChars);
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
-            //updateContorlProperty(form.toolStripProgressBar1, "Value", p.progressBarValue);
-
-            
+            if (!(p.progressBarValue == 100))
+            {
+                updateContorlProperty(form.progressBar1, "Value", p.progressBarValue + 1);
+            }
+            updateContorlProperty(form.progressBar1, "Value", p.progressBarValue);
+            updateContorlProperty(form.labelPercent, "Text", p.progressBarValue + " %");
         }
 
         private void updateContorlProperty(Control control, string propertyName, object propertyValue)
         {
-            control.Invoke(new SetControlPropertyDelegate(SetControlProperty), new object[] { control, propertyName, propertyValue });
+                control.Invoke(new SetControlPropertyDelegate(SetControlProperty), new object[] { control, propertyName, propertyValue });
         }
 
         private delegate void SetControlPropertyDelegate(Control control, string propertyName, object propertyValue);

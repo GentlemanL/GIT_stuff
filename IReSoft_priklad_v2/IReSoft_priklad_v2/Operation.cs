@@ -17,6 +17,8 @@ namespace IReSoft_priklad_v2
 
         private bool flag = true;
         private bool consecutiveEnter = false;
+
+        private char tmp;
         //private static char[] arrayWordChars = Enumerable.Range('a', 'z' - 'a' + 1).SelectMany(i => new char[] {(char)i, Char.ToUpper((char)i)}).ToArray();
         private HashSet<char> whiteSpaceChars = new HashSet<char> {'\n', '\r', ' ', '\t' };
         private HashSet<char> sentenceChars = new HashSet<char> { '.', '?', '!' };
@@ -50,16 +52,24 @@ namespace IReSoft_priklad_v2
              }
          }*/
 
-        protected void setProgres(char currentChar, char previousChar, IUpdater update)
+        protected void setProgres(string s, int index, IUpdater update)
         {
             pr.numOfChars++;
-            if (lineChars.Contains(currentChar)) pr.numOfLines++;
-            if (sentenceChars.Contains(currentChar) && !sentenceChars.Contains(previousChar)) pr.numOfSentences++;
+            if (index == 0)
+            {
+                tmp = s[0];
+            }
+            else tmp = s[index - 1];
 
-            if ((whiteSpaceChars.Contains(currentChar) || sentenceChars.Contains(currentChar)) && isWord(previousChar)) pr.numOfWords++;
-            //if (whiteSpaceChars.Contains(currentChar) && !whiteSpaceChars.Contains(previousChar)) pr.numOfWords++;
+            if (lineChars.Contains(s[index])) pr.numOfLines++;
+            if (sentenceChars.Contains(s[index]) && !sentenceChars.Contains(tmp)) pr.numOfSentences++;
+            if ((whiteSpaceChars.Contains(s[index]) || sentenceChars.Contains(s[index])) && isWord(tmp)) pr.numOfWords++;
 
-            update.update(pr);
+            pr.progressBarValue = ((index+1)*100 / s.Length);
+            if (index % 100 == 0 || index == s.Length-1)
+            {
+                update.update(pr);
+            }
         }
 
         //protected void setProgres(char currentChar, char previousChar, IUpdater update)

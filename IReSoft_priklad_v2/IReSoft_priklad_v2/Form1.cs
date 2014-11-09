@@ -24,18 +24,17 @@ namespace IReSoft_priklad_v2
             panel1.Visible = false;
             panel2.Visible = false;
             label2.Visible = false;
+            checkBoxes = new CheckBox[] { checkBoxDiacritics, checkBoxEmptyLines, checkBoxSpacesAndPunctuation };
         }
+
+        private CheckBox[] checkBoxes;
 
         private string inputText;
         private string editedText;
         private string path;
         private int progressBarModifier = 1;
         private Thread thread;
-        private Execute ex;
-        private IOperation rd;
-        private IOperation rel;
-        private IOperation rsap;
-        
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -80,41 +79,44 @@ namespace IReSoft_priklad_v2
         {
             Application.Exit();
         }
-        
+
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
+            buttonAplikujNastavenia.Enabled = false;
+            foreach (var item in checkBoxes)
+            {
+                item.Enabled = false;
+            }
+
             if (inputText.Length != 0)
             {
                 editedText = inputText;
                 thread = new Thread(() =>
                 {
-                    ex = new Execute();
-                    if (checkBoxDiacritics.Checked)
+                    IUpdater u = new FormUpdater(this);
+                    IOperation[] op = new IOperation[] { new RemoveDiacritics(), new RemoveEmptyLines(), new RemoveSpacesAndPunctuation() };
+                    for (int i = 0; i < checkBoxes.Length; i++)
                     {
-                        rd = new RemoveDiacritics();
-                        editedText = ex.runOperation(rd, inputText, new FormUpdater(this));
-                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                        if (checkBoxes[i].Checked)
+                        {
+                            editedText = op[i].Run(editedText, u);
+                            SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                        }
                     }
-                    if (checkBoxEmptyLines.Checked)
+
+                    createOutput(editedText);
+                    /*foreach (var item in checkBoxes)
                     {
-                        rel = new RemoveEmptyLines();
-                        editedText = ex.runOperation(rel, editedText, new FormUpdater(this));
-                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
-                    }
-                    if (checkBoxSpacesAndPunctuation.Checked)
-                    {
-                        rsap = new RemoveSpacesAndPunctuation();
-                        editedText = ex.runOperation(rsap, editedText, new FormUpdater(this));
-                        SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
-                    }
+                        item.Enabled = true;
+                    }*/
                 });
+                thread.IsBackground = true;
                 thread.Start();
             }
             else
             {
                 MessageBox.Show("File is empty! Select another file.");
-            } 
-            
+            }
         }
 
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);

@@ -17,8 +17,8 @@ namespace IReSoft_priklad_v2
             {
                 if (i > 1) { tmp1 = s[i - 1]; }
                 if (i > 2) { tmp2 = s[i - 2]; }
-                if (s[i] == '\r' && tmp1 == '\n' && tmp2 == '\n') { setProgres(s[i], tmp1, u); continue; }
-                else if (s[i] == '\n' && tmp1 == '\r' && tmp2 == '\n') { setProgres(s[i], tmp1, u); continue; }
+                if (s[i] == '\r' && tmp1 == '\n' && tmp2 == '\n') { setProgres(s, i, u); continue; }
+                else if (s[i] == '\n' && tmp1 == '\r' && tmp2 == '\n') { setProgres(s, i, u); continue; }
                 else
                 {
                     returnString += s[i];
@@ -28,7 +28,7 @@ namespace IReSoft_priklad_v2
                 {
                     returnString.TrimEnd('\r', '\n');
                 }
-                setProgres(s[i], tmp1, u);
+                setProgres(s, i, u);
             }
             return returnString;
         }

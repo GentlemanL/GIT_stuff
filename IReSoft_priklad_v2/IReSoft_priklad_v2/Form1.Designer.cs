@@ -50,6 +50,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBoxKontrola = new System.Windows.Forms.TextBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.labelPercent = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -111,6 +113,7 @@
             // 
             // toolStripProgressBar1
             // 
+            this.toolStripProgressBar1.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
@@ -239,9 +242,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(157, 28);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Kontrola";
+            this.label2.Text = "Progress";
             // 
             // panel2
             // 
@@ -263,11 +266,29 @@
             this.textBoxKontrola.Size = new System.Drawing.Size(438, 380);
             this.textBoxKontrola.TabIndex = 0;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(210, 27);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(310, 17);
+            this.progressBar1.TabIndex = 20;
+            // 
+            // labelPercent
+            // 
+            this.labelPercent.AutoSize = true;
+            this.labelPercent.Location = new System.Drawing.Point(526, 28);
+            this.labelPercent.Name = "labelPercent";
+            this.labelPercent.Size = new System.Drawing.Size(24, 13);
+            this.labelPercent.TabIndex = 21;
+            this.labelPercent.Text = "0 %";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 446);
+            this.Controls.Add(this.labelPercent);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
@@ -301,7 +322,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonCopy;
-        private System.Windows.Forms.Button buttonAplikujNastavenia;
         private System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
         private System.Windows.Forms.CheckBox checkBoxEmptyLines;
         private System.Windows.Forms.CheckBox checkBoxDiacritics;
@@ -315,6 +335,9 @@
         internal System.Windows.Forms.ToolStripStatusLabel toolStripStatusPercentLabel;
         internal System.Windows.Forms.Label labelPocetViet;
         internal System.Windows.Forms.Label labelPocetSlov;
+        internal System.Windows.Forms.ProgressBar progressBar1;
+        internal System.Windows.Forms.Button buttonAplikujNastavenia;
+        internal System.Windows.Forms.Label labelPercent;
     }
 }
 

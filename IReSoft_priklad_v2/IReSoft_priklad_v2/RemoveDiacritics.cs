@@ -23,12 +23,12 @@ namespace IReSoft_priklad_v2
                 }
                 if (i == 0)
                 {
-                    setProgres(s[i], s[0], u);
+                    setProgres(s, i, u);
                 }
                 else
                 {
                     //sb vs s
-                    setProgres(s[i], s[i-1], u);
+                    setProgres(s, i, u);
                 }
             }
             return sb.ToString();

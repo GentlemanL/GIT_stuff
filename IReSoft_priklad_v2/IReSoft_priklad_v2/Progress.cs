@@ -25,5 +25,13 @@ namespace IReSoft_priklad_v2
         public int numOfWords { get; set; }
         public int numOfChars { get; set; }
         public int progressBarValue { get; set; }
+
+        private int progressValue;
+        public int ProgressValue
+        {
+            get { return progressValue; }
+            set { progressValue = value; }
+        }
+
     }
 }
