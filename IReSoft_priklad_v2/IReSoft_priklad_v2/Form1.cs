@@ -29,13 +29,13 @@ namespace IReSoft_priklad_v2
         private string inputText;
         private string editedText;
         private string path;
+        private int progressBarModifier = 1;
         private Thread thread;
         private Execute ex;
         private IOperation rd;
         private IOperation rel;
         private IOperation rsap;
-        //private int numOfLines, numOfWords, numOfChars, numOfSentences;
-
+        
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -51,6 +51,7 @@ namespace IReSoft_priklad_v2
                     label2.Visible = true;
 
                     inputText = System.IO.File.ReadAllText(path);
+
                     //kontrola vstupu
                     textBoxKontrola.Text = inputText;
                 }
@@ -82,10 +83,9 @@ namespace IReSoft_priklad_v2
         
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
-            //Enumerable.Range(1,10).se
             if (inputText.Length != 0)
             {
-                //pomenil som edited text na inputtext
+                editedText = inputText;
                 thread = new Thread(() =>
                 {
                     ex = new Execute();
@@ -98,13 +98,13 @@ namespace IReSoft_priklad_v2
                     if (checkBoxEmptyLines.Checked)
                     {
                         rel = new RemoveEmptyLines();
-                        editedText = ex.runOperation(rel, inputText, new FormUpdater(this));
+                        editedText = ex.runOperation(rel, editedText, new FormUpdater(this));
                         SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                     }
                     if (checkBoxSpacesAndPunctuation.Checked)
                     {
                         rsap = new RemoveSpacesAndPunctuation();
-                        editedText = ex.runOperation(rsap, inputText, new FormUpdater(this));
+                        editedText = ex.runOperation(rsap, editedText, new FormUpdater(this));
                         SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                     }
                 });

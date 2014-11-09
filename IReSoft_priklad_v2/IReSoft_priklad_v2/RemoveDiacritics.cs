@@ -11,7 +11,7 @@ namespace IReSoft_priklad_v2
     {
         public override string Run(string s, IUpdater u)
         {
-            // normalizacia sposobi ze mekcene a ciarky sa rataju ako dalsi znak
+            // normalizacia sposobi ze mekcene a ciarky sa rataju ako dalsi znak - treba doriesit!!!
             s = s.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
 
@@ -23,11 +23,12 @@ namespace IReSoft_priklad_v2
                 }
                 if (i == 0)
                 {
-                    setProgres(sb[i], s[0], u);
+                    setProgres(s[i], s[0], u);
                 }
                 else
                 {
-                    setProgres(sb[i], s[i-1], u);
+                    //sb vs s
+                    setProgres(s[i], s[i-1], u);
                 }
             }
             return sb.ToString();

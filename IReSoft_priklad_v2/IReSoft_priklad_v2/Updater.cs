@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,9 @@ namespace IReSoft_priklad_v2
             updateContorlProperty(form.labelPocetZnakov, "Text", "Pocet znakov: " + p.numOfChars);
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
+            //updateContorlProperty(form.toolStripProgressBar1, "Value", p.progressBarValue);
+
+            
         }
 
         private void updateContorlProperty(Control control, string propertyName, object propertyValue)
@@ -34,7 +38,7 @@ namespace IReSoft_priklad_v2
         private delegate void SetControlPropertyDelegate(Control control, string propertyName, object propertyValue);
         private static void SetControlProperty(Control control, string propertyName, object propertyValue)
         {
-                control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
+            control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
         }
     }
 }

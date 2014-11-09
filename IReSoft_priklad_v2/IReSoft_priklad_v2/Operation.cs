@@ -55,7 +55,9 @@ namespace IReSoft_priklad_v2
             pr.numOfChars++;
             if (lineChars.Contains(currentChar)) pr.numOfLines++;
             if (sentenceChars.Contains(currentChar) && !sentenceChars.Contains(previousChar)) pr.numOfSentences++;
-            if (whiteSpaceChars.Contains(currentChar) && !whiteSpaceChars.Contains(previousChar)) pr.numOfWords++;
+
+            if ((whiteSpaceChars.Contains(currentChar) || sentenceChars.Contains(currentChar)) && isWord(previousChar)) pr.numOfWords++;
+            //if (whiteSpaceChars.Contains(currentChar) && !whiteSpaceChars.Contains(previousChar)) pr.numOfWords++;
 
             update.update(pr);
         }
