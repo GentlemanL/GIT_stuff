@@ -24,7 +24,6 @@ namespace IReSoft_priklad_v2
             updateContorlProperty(form.labelPocetZnakov, "Text", "Pocet znakov: " + p.numOfChars);
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
-           // updateContorlProperty(form.toolStripStatusPercentLabel, "Text", p.numOfSentences + "%");
         }
 
         private void updateContorlProperty(Control control, string propertyName, object propertyValue)

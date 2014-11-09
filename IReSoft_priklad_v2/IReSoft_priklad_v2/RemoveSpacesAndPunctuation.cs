@@ -18,9 +18,6 @@ namespace IReSoft_priklad_v2
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             s = textInfo.ToTitleCase(s);
 
-            //iba jedna operacia - asi nepouzitelne
-            //string x = new string(s.Where(c => !char.IsPunctuation(c) || char.IsWhiteSpace(c)).ToArray());
-
             for (int i = 0; i < s.Length; i++)
             {
                 if (!char.IsPunctuation(s[i]) && !(s[i] == ' ')) //

@@ -82,6 +82,7 @@ namespace IReSoft_priklad_v2
         
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
+            //Enumerable.Range(1,10).se
             if (inputText.Length != 0)
             {
                 //pomenil som edited text na inputtext

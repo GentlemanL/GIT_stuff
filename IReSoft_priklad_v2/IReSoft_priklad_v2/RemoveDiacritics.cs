@@ -14,16 +14,12 @@ namespace IReSoft_priklad_v2
             // normalizacia sposobi ze mekcene a ciarky sa rataju ako dalsi znak
             s = s.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
-            //char tmp = s[0];
 
             for (int i = 0; i < s.Length; i++)
             {
                 if (CharUnicodeInfo.GetUnicodeCategory(s[i]) != UnicodeCategory.NonSpacingMark)
                 {
                     sb.Append(s[i]);
-
-                    // treba kvoli kontrole viacerych medzier
-                    //if (i > 1) tmp = s[i - 1];
                 }
                 if (i == 0)
                 {
@@ -31,10 +27,10 @@ namespace IReSoft_priklad_v2
                 }
                 else
                 {
-                    setProgres(s[i], s[i-1], u);
+                    setProgres(sb[i], s[i-1], u);
                 }
             }
-            return /*s =*/ sb.ToString();
+            return sb.ToString();
         }
     }
 }

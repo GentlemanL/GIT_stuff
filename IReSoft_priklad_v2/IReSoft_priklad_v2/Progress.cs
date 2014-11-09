@@ -9,15 +9,13 @@ namespace IReSoft_priklad_v2
     // tato trieda sluzi len ako udrzovanie premenych o stave
     public class Progress
     {
-        //private Progress pr;
-
         public Progress(Progress pr)
         {
-            //this a bez this kvoli pokusu ci sa neico zmeni
-            this.numOfLines = pr.numOfLines;
-            this.numOfSentences = pr.numOfSentences;
+            numOfLines = pr.numOfLines;
+            numOfSentences = pr.numOfSentences;
             numOfWords = pr.numOfWords;
             numOfChars = pr.numOfChars;
+            progressBarValue = pr.progressBarValue;
         }
 
         public Progress() { }
@@ -26,5 +24,6 @@ namespace IReSoft_priklad_v2
         public int numOfSentences { get; set; }
         public int numOfWords { get; set; }
         public int numOfChars { get; set; }
+        public int progressBarValue { get; set; }
     }
 }
