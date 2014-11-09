@@ -10,10 +10,10 @@ namespace IReSoft_priklad_v2
     public class Execute
     {
 
-        public string /*void*/ runOperation(Operation op, string s)
+        public string /*void*/ runOperation(IOperation op, string s, IUpdater u)
         {
             //Thread thread = new Thread(() => op.Run(s));
-            string v = op.Run(s);
+            string v = op.Run(s,u);
             return v;
         }
     }

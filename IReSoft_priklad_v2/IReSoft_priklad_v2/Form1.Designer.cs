@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusPercentLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelPocetZnakov = new System.Windows.Forms.Label();
             this.labelPocetViet = new System.Windows.Forms.Label();
@@ -66,6 +66,31 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.openToolStripMenuItem.Text = "Open...";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -94,31 +119,6 @@
             this.toolStripStatusPercentLabel.Name = "toolStripStatusPercentLabel";
             this.toolStripStatusPercentLabel.Size = new System.Drawing.Size(26, 17);
             this.toolStripStatusPercentLabel.Text = "0 %";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openToolStripMenuItem,
-            this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.openToolStripMenuItem.Text = "Open...";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.exitToolStripMenuItem.Text = "Exit";
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -195,31 +195,31 @@
             this.buttonAplikujNastavenia.UseVisualStyleBackColor = true;
             this.buttonAplikujNastavenia.Click += new System.EventHandler(this.buttonAplikujNastavenia_Click);
             // 
-            // checkBoxMedzeryInterpunkcia
+            // checkBoxSpacesAndPunctuation
             // 
             this.checkBoxSpacesAndPunctuation.AutoSize = true;
             this.checkBoxSpacesAndPunctuation.Location = new System.Drawing.Point(13, 111);
-            this.checkBoxSpacesAndPunctuation.Name = "checkBoxMedzeryInterpunkcia";
+            this.checkBoxSpacesAndPunctuation.Name = "checkBoxSpacesAndPunctuation";
             this.checkBoxSpacesAndPunctuation.Size = new System.Drawing.Size(136, 17);
             this.checkBoxSpacesAndPunctuation.TabIndex = 13;
             this.checkBoxSpacesAndPunctuation.Text = "Medzery a interpunkciu";
             this.checkBoxSpacesAndPunctuation.UseVisualStyleBackColor = true;
             // 
-            // checkBoxPrazdneRiadky
+            // checkBoxEmptyLines
             // 
             this.checkBoxEmptyLines.AutoSize = true;
             this.checkBoxEmptyLines.Location = new System.Drawing.Point(13, 87);
-            this.checkBoxEmptyLines.Name = "checkBoxPrazdneRiadky";
+            this.checkBoxEmptyLines.Name = "checkBoxEmptyLines";
             this.checkBoxEmptyLines.Size = new System.Drawing.Size(96, 17);
             this.checkBoxEmptyLines.TabIndex = 12;
             this.checkBoxEmptyLines.Text = "Prazdne riadky";
             this.checkBoxEmptyLines.UseVisualStyleBackColor = true;
             // 
-            // checkBoxDiakritika
+            // checkBoxDiacritics
             // 
             this.checkBoxDiacritics.AutoSize = true;
             this.checkBoxDiacritics.Location = new System.Drawing.Point(13, 63);
-            this.checkBoxDiacritics.Name = "checkBoxDiakritika";
+            this.checkBoxDiacritics.Name = "checkBoxDiacritics";
             this.checkBoxDiacritics.Size = new System.Drawing.Size(70, 17);
             this.checkBoxDiacritics.TabIndex = 11;
             this.checkBoxDiacritics.Text = "Diakritiku";
@@ -299,13 +299,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusPercentLabel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label labelPocetZnakov;
-        private System.Windows.Forms.Label labelPocetViet;
-        private System.Windows.Forms.Label labelPocetRiadkov;
-        private System.Windows.Forms.Label labelPocetSlov;
         private System.Windows.Forms.Button buttonCopy;
         private System.Windows.Forms.Button buttonAplikujNastavenia;
         private System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
@@ -315,6 +309,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBoxKontrola;
+        internal System.Windows.Forms.Label labelPocetZnakov;
+        internal System.Windows.Forms.Label labelPocetRiadkov;
+        internal System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        internal System.Windows.Forms.ToolStripStatusLabel toolStripStatusPercentLabel;
+        internal System.Windows.Forms.Label labelPocetViet;
+        internal System.Windows.Forms.Label labelPocetSlov;
     }
 }
 

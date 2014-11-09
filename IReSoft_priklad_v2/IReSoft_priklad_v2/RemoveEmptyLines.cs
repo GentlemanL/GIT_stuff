@@ -8,7 +8,7 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveEmptyLines : Operation
     {
-        public override string Run(string s)
+        public override string Run(string s, IUpdater u)
         {
             // odstranovanie nadbytocnych \n
             char tmp = s[0];
@@ -28,7 +28,7 @@ namespace IReSoft_priklad_v2
                         returnString += s[i];
                     }
                 }
-                setProgres(s[i], tmp);
+                setProgres(s[i], tmp, u);
             }
             return returnString;
         }

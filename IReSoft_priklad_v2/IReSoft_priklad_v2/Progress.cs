@@ -20,10 +20,7 @@ namespace IReSoft_priklad_v2
             numOfChars = pr.numOfChars;
         }
 
-        public Progress()
-        {
-            // TODO: Complete member initialization
-        }
+        public Progress() { }
 
         public int numOfLines { get; set; }
         public int numOfSentences { get; set; }

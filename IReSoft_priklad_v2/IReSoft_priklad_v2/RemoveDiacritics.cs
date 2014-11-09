@@ -9,7 +9,7 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveDiacritics : Operation
     {
-        public override string Run(string s)
+        public override string Run(string s, IUpdater u)
         {
             s = s.Normalize(NormalizationForm.FormD);
             StringBuilder sb = new StringBuilder();
@@ -26,11 +26,11 @@ namespace IReSoft_priklad_v2
                 }
                 if (i == 0)
                 {
-                    setProgres(sb[i], s[0]);
+                    setProgres(sb[i], s[0], u);
                 }
                 else
                 {
-                    setProgres(s[i], s[i-1]);
+                    setProgres(s[i], s[i-1], u);
                 }
             }
             return /*s =*/ sb.ToString();

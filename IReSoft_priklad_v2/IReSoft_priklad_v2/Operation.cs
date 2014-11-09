@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
+using System.Reflection;
+using System.Windows.Forms;
 
 namespace IReSoft_priklad_v2
 {
@@ -12,22 +14,23 @@ namespace IReSoft_priklad_v2
         protected Progress pr = new Progress();
         //protected Form1 form;
 
-        public abstract string Run(string s);
-        public Progress GetProgress()
+        public abstract string Run(string s, IUpdater u);
+       /* public Progress GetProgress()
         {
             lock (pr)
             {
                 //pametat si do buducnosti - ACid
                 return new Progress(pr);
             }
-        }
+        }*/
 
         // mozno ju nechat normalne naimplementovanu a nepouzivat ani virtual
-        protected /*virtual*/ void setProgres(char currentChar, char previousChar)
+        protected /*virtual*/ void setProgres(char currentChar, char previousChar, IUpdater update)
         {
-            lock (pr)
-            {
+            //lock (pr)
+            //{
                 pr.numOfChars++;
+                //SetControlPropertyThreadSafe(form.labelPocetZnakov, "Text", pr.numOfChars.ToString());
                 if (currentChar == '.' || currentChar == '?' || currentChar == '!')
                 {
                     pr.numOfSentences++;
@@ -40,7 +43,8 @@ namespace IReSoft_priklad_v2
                 {
                     pr.numOfWords++;
                 }
-            }
+                update.update(pr);
+            //}
         }
     }
 }

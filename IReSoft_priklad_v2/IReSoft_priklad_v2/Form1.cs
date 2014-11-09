@@ -31,9 +31,9 @@ namespace IReSoft_priklad_v2
         private string path;
         private Thread thread;
         private Execute ex;
-        private RemoveDiacritics rd = new RemoveDiacritics();
-        private RemoveEmptyLines rel;
-        private RemoveSpacesAndPunctuation rsap;
+        private IOperation rd = new RemoveDiacritics();
+        private IOperation rel;
+        private IOperation rsap;
         //private int numOfLines, numOfWords, numOfChars, numOfSentences;
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -93,17 +93,17 @@ namespace IReSoft_priklad_v2
                 if (checkBoxDiacritics.Checked)
                 {
                     ex = new Execute();
-                    editedText = ex.runOperation(rd, inputText);
+                    editedText = ex.runOperation(rd, inputText, new FormUpdater(this));
                     SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                 }
-                if (checkBoxEmptyLines.Checked)
+               /* if (checkBoxEmptyLines.Checked)
                 {
-                    textBoxKontrola.Text = ex.runOperation(rel, inputText);
+                    textBoxKontrola.Text = ex.runOperation(rel, inputText, this);
                 }
                 if (checkBoxSpacesAndPunctuation.Checked)
                 {
-                    textBoxKontrola.Text = ex.runOperation(rsap, inputText);
-                }
+                    textBoxKontrola.Text = ex.runOperation(rsap, inputText, this);
+                }*/
             });
 
             thread.Start();
