@@ -27,7 +27,7 @@ namespace IReSoft_priklad_v2
             checkBoxes = new CheckBox[] { checkBoxDiacritics, checkBoxEmptyLines, checkBoxSpacesAndPunctuation };
         }
 
-        private CheckBox[] checkBoxes;
+        internal CheckBox[] checkBoxes;
 
         private string inputText;
         private string editedText;

@@ -26,11 +26,15 @@ namespace IReSoft_priklad_v2
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
             if (!(p.progressBarValue == 100))
-            {
                 updateContorlProperty(form.progressBar1, "Value", p.progressBarValue + 1);
-            }
             updateContorlProperty(form.progressBar1, "Value", p.progressBarValue);
             updateContorlProperty(form.labelPercent, "Text", p.progressBarValue + " %");
+            
+            if (p.progressBarValue == 100)
+            {
+                MethodInvoker action = () => form.checkBoxDiacritics.Enabled = true;
+                form.checkBoxDiacritics.BeginInvoke(action);
+            }
         }
 
         private void updateContorlProperty(Control control, string propertyName, object propertyValue)

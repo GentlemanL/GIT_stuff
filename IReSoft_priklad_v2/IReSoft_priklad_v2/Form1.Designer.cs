@@ -321,10 +321,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonCopy;
-        private System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
-        private System.Windows.Forms.CheckBox checkBoxEmptyLines;
-        private System.Windows.Forms.CheckBox checkBoxDiacritics;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
@@ -338,6 +334,10 @@
         internal System.Windows.Forms.ProgressBar progressBar1;
         internal System.Windows.Forms.Button buttonAplikujNastavenia;
         internal System.Windows.Forms.Label labelPercent;
+        internal System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
+        internal System.Windows.Forms.CheckBox checkBoxEmptyLines;
+        internal System.Windows.Forms.CheckBox checkBoxDiacritics;
+        internal System.Windows.Forms.Button buttonCopy;
     }
 }
 
