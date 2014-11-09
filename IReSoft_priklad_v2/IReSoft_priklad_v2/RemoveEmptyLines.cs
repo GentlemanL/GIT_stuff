@@ -32,6 +32,5 @@ namespace IReSoft_priklad_v2
             }
             return returnString;
         }
-
     }
 }

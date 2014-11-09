@@ -10,6 +10,7 @@ namespace IReSoft_priklad_v2
     public abstract class Operation : IOperation
     {
         protected Progress pr = new Progress();
+        //protected Form1 form;
 
         public abstract string Run(string s);
         public Progress GetProgress()

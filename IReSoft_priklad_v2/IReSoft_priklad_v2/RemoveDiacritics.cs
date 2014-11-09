@@ -9,10 +9,6 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveDiacritics : Operation
     {
-        public RemoveDiacritics()
-        {
-
-        }
         public override string Run(string s)
         {
             s = s.Normalize(NormalizationForm.FormD);
@@ -26,13 +22,18 @@ namespace IReSoft_priklad_v2
                     sb.Append(s[i]);
 
                     // treba kvoli kontrole viacerych medzier
-                    if (i > 0) tmp = s[i - 1];
+                    if (i > 1) tmp = s[i - 1];
                 }
-                setProgres(sb[i], tmp);
+                if (i == 0)
+                {
+                    setProgres(sb[i], s[0]);
+                }
+                else
+                {
+                    setProgres(s[i], s[i-1]);
+                }
             }
             return /*s =*/ sb.ToString();
         }
-
-
     }
 }

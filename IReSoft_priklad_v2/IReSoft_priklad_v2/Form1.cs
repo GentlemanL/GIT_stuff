@@ -4,7 +4,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,8 +26,10 @@ namespace IReSoft_priklad_v2
             label2.Visible = false;
         }
 
-        private string fileText;
+        private string inputText;
+        private string editedText;
         private string path;
+        private Thread thread;
         private Execute ex;
         private RemoveDiacritics rd = new RemoveDiacritics();
         private RemoveEmptyLines rel;
@@ -46,9 +50,9 @@ namespace IReSoft_priklad_v2
                     panel2.Visible = true;
                     label2.Visible = true;
 
-                    fileText = System.IO.File.ReadAllText(path);
+                    inputText = System.IO.File.ReadAllText(path);
                     //kontrola vstupu
-                    textBoxKontrola.Text = fileText;
+                    textBoxKontrola.Text = inputText;
                 }
             }
             catch (Exception ex)
@@ -60,14 +64,14 @@ namespace IReSoft_priklad_v2
             }
         }
 
-        private void createCopy()
+        private void createOutput(string s)
         {
             //neskor - nejak inak spravit path
-            System.IO.File.WriteAllText(path.Substring(0, path.Length - 4) + " - vystup.txt", fileText);
+            System.IO.File.WriteAllText(path.Substring(0, path.Length - 4) + " - vystup.txt", s);
         }
         private void buttonCopy_Click(object sender, EventArgs e)
         {
-            createCopy();
+            createOutput(inputText);
             MessageBox.Show("Vystup sa vytvoril v adresari otvoreneho txt suboru s povodnym znenim a pridanym stringom '- vystup'.");
         }
 
@@ -75,23 +79,47 @@ namespace IReSoft_priklad_v2
         {
             Application.Exit();
         }
-
+        
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
-            if (checkBoxDiacritics.Checked)
-            {
-                textBoxKontrola.Text = ex.runOperation(rd, fileText);
-            }
-            if (checkBoxEmptyLines.Checked)
-            {
-                textBoxKontrola.Text = ex.runOperation(rel, fileText);
-            }
-            if (checkBoxSpacesAndPunctuation.Checked)
-            {
-                textBoxKontrola.Text = ex.runOperation(rsap, fileText);
-            }
+            updateStuff();
+            //textBoxKontrola.Text = editedText;
         }
 
+        private void updateStuff()
+        {
+            thread = new Thread(() =>
+            {
+                if (checkBoxDiacritics.Checked)
+                {
+                    ex = new Execute();
+                    editedText = ex.runOperation(rd, inputText);
+                    SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                }
+                if (checkBoxEmptyLines.Checked)
+                {
+                    textBoxKontrola.Text = ex.runOperation(rel, inputText);
+                }
+                if (checkBoxSpacesAndPunctuation.Checked)
+                {
+                    textBoxKontrola.Text = ex.runOperation(rsap, inputText);
+                }
+            });
 
+            thread.Start();
+        }
+
+        private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
+        public static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue)
+        {
+            if (control.InvokeRequired)
+            {
+                control.Invoke(new SetControlPropertyThreadSafeDelegate(SetControlPropertyThreadSafe), new object[] { control, propertyName, propertyValue });
+            }
+            else
+            {
+                control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
+            }
+        }
     }
 }

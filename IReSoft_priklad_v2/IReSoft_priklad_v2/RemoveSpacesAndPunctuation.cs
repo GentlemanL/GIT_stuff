@@ -32,22 +32,5 @@ namespace IReSoft_priklad_v2
             }
             return returnString;
         }
-
-        //protected override void setProgres(char currChar, char prevChar)
-        //{
-        //    lock (pr)
-        //    {
-        //        pr.numOfChars++;
-        //        if (currChar == '.' || currChar == '?' || currChar == '!')
-        //        {
-        //            pr.numOfSentences++;
-        //        }
-        //        if (currChar == '\n')
-        //        {
-        //            pr.numOfLines++;
-        //        }
-        //    }
-        //}
-
     }
 }
