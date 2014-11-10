@@ -245,6 +245,7 @@
             this.textBoxKontrola.Location = new System.Drawing.Point(0, 0);
             this.textBoxKontrola.Multiline = true;
             this.textBoxKontrola.Name = "textBoxKontrola";
+            this.textBoxKontrola.ReadOnly = true;
             this.textBoxKontrola.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxKontrola.Size = new System.Drawing.Size(431, 342);
             this.textBoxKontrola.TabIndex = 0;

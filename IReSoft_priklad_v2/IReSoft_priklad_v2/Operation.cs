@@ -12,12 +12,6 @@ namespace IReSoft_priklad_v2
     public abstract class Operation : IOperation
     {
         protected Progress pr = new Progress();
-        //protected Form1 form;
-
-
-        private bool flag = true;
-        private bool consecutiveEnter = false;
-
         private char tmp;
         //private static char[] arrayWordChars = Enumerable.Range('a', 'z' - 'a' + 1).SelectMany(i => new char[] {(char)i, Char.ToUpper((char)i)}).ToArray();
         private HashSet<char> whiteSpaceChars = new HashSet<char> { '\n', '\r', ' ', '\t' };
@@ -59,19 +53,12 @@ namespace IReSoft_priklad_v2
             if (sentenceChars.Contains(s[index]) && !sentenceChars.Contains(tmp)) pr.numOfSentences++;
             if ((whiteSpaceChars.Contains(s[index]) || sentenceChars.Contains(s[index])) && isWord(tmp)) pr.numOfWords++;
 
-            // treba spravit aby sa scitavaly progresy operacii
-            // nejaka chyba - ak uz bola operacia spravena tak sa neda spravit znova 
             pr.progressBarValue = ((index + 1 + (s.Length * (opNum - 1))) * 100 / (s.Length * numOfOps));
-            //pr.progressBarValue = ((index+1)*100 / s.Length);
 
             if (index % 100 == 0 || index == s.Length - 1)
             {
                 update.update(pr);
             }
-               /* if (pr.progressBarValue == 100)
-                {
-                    pr.progressBarValue = 0;
-                }*/
         }
     }
 }

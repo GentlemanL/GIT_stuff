@@ -37,9 +37,27 @@ namespace IReSoft_priklad_v2
                 form.panel1.BeginInvoke(action);
 
                 p.progressBarValue = 0;
-                //p.numOfLinesAfterRemove = aDiff.text.Split('\n').Length;
+                
+                // mozno spravit inak aby to nebola zbytocan skoro duplicita kodu
+                updateContorlProperty(form.labelOutputWords, "Text", "Pocet slov: " + p.numOfWords);
+                updateContorlProperty(form.labelOutputCharacters, "Text", "Pocet znakov: " + p.numOfChars);
+                updateContorlProperty(form.labelOutputSentences, "Text", "Pocet viet: " + p.numOfSentences);
+
+                //p.numOfLinesAfterRemove = s.text.Split('\n').Length;
+                //p.numOfLinesAfterRemove = CountLines(s);
+                //updateContorlProperty(form.labelOutputLines, "Text", "Pocet riadkov: " + CountLines(s));
             }
         }
+        /*
+        private static int CountLines(string s)
+        {
+            int n = 0;
+            foreach (var c in s)
+            {
+                if (c == '\n') n++;
+            }
+            return n + 1;
+        }*/
 
         private void updateContorlProperty(Control control, string propertyName, object propertyValue)
         {

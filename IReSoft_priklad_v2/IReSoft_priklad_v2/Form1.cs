@@ -107,6 +107,7 @@ namespace IReSoft_priklad_v2
                             SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                         }
                     }
+                    SetControlPropertyThreadSafe(labelOutputLines, "Text", "Lines: " + editedText.Count(c => c == '\n'));
                     createOutput(editedText);
                 });
                 thread.IsBackground = true;
