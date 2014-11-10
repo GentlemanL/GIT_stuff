@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace IReSoft_priklad_v2
 {
-    // tato trieda sluzi len ako udrzovanie premenych o stave
+    /// <summary>
+    /// This class serves as data storage
+    /// </summary>
     public class Progress
     {
         public Progress(Progress pr)
@@ -22,6 +24,7 @@ namespace IReSoft_priklad_v2
 
         public Progress() { }
 
+        #region properties
         public int numOfLines { get; set; }
         public int numOfSentences { get; set; }
         public int numOfWords { get; set; }
@@ -29,5 +32,6 @@ namespace IReSoft_priklad_v2
         public int progressBarValue { get; set; }
         public int totalProgressValue { get; set; }
         public int numOfLinesAfterRemove { get; set; }
+        #endregion
     }
 }

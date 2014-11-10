@@ -24,18 +24,19 @@ namespace IReSoft_priklad_v2
             panel1.Visible = false;
             panel2.Visible = false;
             panel3.Visible = false;
-            buttonAplikujNastavenia.Enabled = false;
+            buttonApplySettings.Enabled = false;
             checkBoxes = new CheckBox[] { checkBoxDiacritics, checkBoxEmptyLines, checkBoxSpacesAndPunctuation };
         }
 
+        #region default needed properties
         internal CheckBox[] checkBoxes;
-
         private string inputText;
         private string editedText;
         private string path;
         private int progressBarModifier = 0;
         private Thread thread;
         private int operationNumber = 0;
+        #endregion
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -48,31 +49,38 @@ namespace IReSoft_priklad_v2
                 {
                     path = ofd.FileName;
 
-                    //zlepsit mozno foreach
+                    //mabye use array and foreach
                     panel1.Visible = true;
                     panel2.Visible = true;
                     panel3.Visible = true;
 
                     inputText = System.IO.File.ReadAllText(path);
 
-                    //kontrola vstupu
-                    textBoxKontrola.Text = inputText;
+                    //text control
+                    textBoxTextCheck.Text = inputText;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString(), "Error - este neviem aky", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally // mozno prec - zatial nanic
-            {
+                MessageBox.Show(ex.Message.ToString(), "Error - none so fary", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        /// <summary>
+        /// Function that creates output file
+        /// </summary>
+        /// <param name="s">input text to write into file</param>
         private void createOutput(string s)
         {
-            //neskor - nejak inak spravit path
+            //later - some better representation of path
             System.IO.File.WriteAllText(path.Substring(0, path.Length - 4) + " - vystup.txt", s);
         }
+        
+        /// <summary>
+        /// Creates copy of input adn shows specifiing message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonCopy_Click(object sender, EventArgs e)
         {
             createOutput(inputText);
@@ -84,13 +92,23 @@ namespace IReSoft_priklad_v2
             Application.Exit();
         }
 
+        /// <summary>
+        /// Applies all functions to be performed on input text.
+        /// Function creats another thread to perfomr tasks.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
+            
+            #region default settigns for each run
             panel1.Enabled = false;
             operationNumber = 0;
             progressBar1.Value = 0;
             labelPercent.Text = "0 %";
+            #endregion
 
+            
             if (inputText.Length != 0)
             {
                 editedText = inputText;
@@ -104,7 +122,7 @@ namespace IReSoft_priklad_v2
                         {
                             operationNumber++;
                             editedText = op[i].Run(editedText, u, progressBarModifier, operationNumber);
-                            SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
+                            SetControlPropertyThreadSafe(textBoxTextCheck, "Text", editedText);
                         }
                     }
                     SetControlPropertyThreadSafe(labelOutputLines, "Text", "Lines: " + editedText.Count(c => c == '\n'));
@@ -118,7 +136,8 @@ namespace IReSoft_priklad_v2
                 MessageBox.Show("File is empty! Select another file.");
             }
         }
-
+        
+        //later - do this nicer
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
         public static void SetControlPropertyThreadSafe(Control control, string propertyName, object propertyValue)
         {
@@ -132,6 +151,11 @@ namespace IReSoft_priklad_v2
             }
         }
 
+        /// <summary>
+        /// Sets number of progress bar modifiers so progress bar can be adjusted during run.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void checkBox_CheckStateChanged(object sender, EventArgs e)
         {
             CheckBox cb = sender as CheckBox;
@@ -143,8 +167,8 @@ namespace IReSoft_priklad_v2
             {
                 progressBarModifier--;
             }
-            if (progressBarModifier == 0) buttonAplikujNastavenia.Enabled = false;
-            else buttonAplikujNastavenia.Enabled = true;
+            if (progressBarModifier == 0) buttonApplySettings.Enabled = false;
+            else buttonApplySettings.Enabled = true;
         }
     }
 }

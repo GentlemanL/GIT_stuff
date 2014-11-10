@@ -11,13 +11,19 @@ namespace IReSoft_priklad_v2
 {
     public abstract class Operation : IOperation
     {
+        #region properties
         protected Progress pr = new Progress();
         private char tmp;
-        //private static char[] arrayWordChars = Enumerable.Range('a', 'z' - 'a' + 1).SelectMany(i => new char[] {(char)i, Char.ToUpper((char)i)}).ToArray();
         private HashSet<char> whiteSpaceChars = new HashSet<char> { '\n', '\r', ' ', '\t' };
         private HashSet<char> sentenceChars = new HashSet<char> { '.', '?', '!' };
         private HashSet<char> lineChars = new HashSet<char> { '\n' };
+        #endregion
 
+        /// <summary>
+        /// checks if current character is word char (alphabet or number)
+        /// </summary>
+        /// <param name="c">character to be checked</param>
+        /// <returns>return true on word character, false otherwise</returns>
         private bool isWord(char c)
         {
             if (whiteSpaceChars.Contains(c))
@@ -35,9 +41,26 @@ namespace IReSoft_priklad_v2
             return true;
         }
 
+        
         // bolo by lepsie keby sa numOfOps neposielal stale ael iba sa vedel z niekade dostat ked treba
+        /// <summary>
+        /// function used by operation to perfrom specific tasks
+        /// </summary>
+        /// <param name="s">input text</param>
+        /// <param name="u">form updater</param>
+        /// <param name="numOfOps">number of operations to be performed</param>
+        /// <param name="opNum">number of curretn operation</param>
+        /// <returns>returns string of edited text</returns>
         public abstract string Run(string s, IUpdater u, int numOfOps, int opNum);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="s">input text</param>
+        /// <param name="index">current index (position in string)</param>
+        /// <param name="update">form updater</param>
+        /// <param name="numOfOps">number of operations to be performed</param>
+        /// <param name="opNum">number of curretn operation</param>
         protected void setProgres(string s, int index, IUpdater update, int numOfOps, int opNum)
         {
             pr.totalProgressValue = s.Length * numOfOps;

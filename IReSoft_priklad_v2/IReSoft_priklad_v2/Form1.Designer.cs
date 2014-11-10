@@ -33,26 +33,26 @@
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelOutputLines = new System.Windows.Forms.Label();
+            this.labelOutputSentences = new System.Windows.Forms.Label();
+            this.labelOutputWords = new System.Windows.Forms.Label();
+            this.labelOutputCharacters = new System.Windows.Forms.Label();
+            this.labelOutput = new System.Windows.Forms.Label();
             this.labelPocetZnakov = new System.Windows.Forms.Label();
             this.labelPocetViet = new System.Windows.Forms.Label();
             this.labelPocetRiadkov = new System.Windows.Forms.Label();
-            this.labelPocetSlov = new System.Windows.Forms.Label();
+            this.labelNumberOfWords = new System.Windows.Forms.Label();
             this.buttonCopy = new System.Windows.Forms.Button();
-            this.buttonAplikujNastavenia = new System.Windows.Forms.Button();
+            this.buttonApplySettings = new System.Windows.Forms.Button();
             this.checkBoxSpacesAndPunctuation = new System.Windows.Forms.CheckBox();
             this.checkBoxEmptyLines = new System.Windows.Forms.CheckBox();
             this.checkBoxDiacritics = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBoxKontrola = new System.Windows.Forms.TextBox();
+            this.textBoxTextCheck = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelPercent = new System.Windows.Forms.Label();
-            this.labelOutput = new System.Windows.Forms.Label();
-            this.labelOutputCharacters = new System.Windows.Forms.Label();
-            this.labelOutputWords = new System.Windows.Forms.Label();
-            this.labelOutputSentences = new System.Windows.Forms.Label();
-            this.labelOutputLines = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -105,9 +105,9 @@
             this.panel1.Controls.Add(this.labelPocetZnakov);
             this.panel1.Controls.Add(this.labelPocetViet);
             this.panel1.Controls.Add(this.labelPocetRiadkov);
-            this.panel1.Controls.Add(this.labelPocetSlov);
+            this.panel1.Controls.Add(this.labelNumberOfWords);
             this.panel1.Controls.Add(this.buttonCopy);
-            this.panel1.Controls.Add(this.buttonAplikujNastavenia);
+            this.panel1.Controls.Add(this.buttonApplySettings);
             this.panel1.Controls.Add(this.checkBoxSpacesAndPunctuation);
             this.panel1.Controls.Add(this.checkBoxEmptyLines);
             this.panel1.Controls.Add(this.checkBoxDiacritics);
@@ -119,41 +119,86 @@
             this.panel1.Size = new System.Drawing.Size(150, 400);
             this.panel1.TabIndex = 2;
             // 
+            // labelOutputLines
+            // 
+            this.labelOutputLines.AutoSize = true;
+            this.labelOutputLines.Location = new System.Drawing.Point(4, 335);
+            this.labelOutputLines.Name = "labelOutputLines";
+            this.labelOutputLines.Size = new System.Drawing.Size(35, 13);
+            this.labelOutputLines.TabIndex = 24;
+            this.labelOutputLines.Text = "Lines:";
+            // 
+            // labelOutputSentences
+            // 
+            this.labelOutputSentences.AutoSize = true;
+            this.labelOutputSentences.Location = new System.Drawing.Point(4, 322);
+            this.labelOutputSentences.Name = "labelOutputSentences";
+            this.labelOutputSentences.Size = new System.Drawing.Size(61, 13);
+            this.labelOutputSentences.TabIndex = 23;
+            this.labelOutputSentences.Text = "Sentences:";
+            // 
+            // labelOutputWords
+            // 
+            this.labelOutputWords.AutoSize = true;
+            this.labelOutputWords.Location = new System.Drawing.Point(5, 309);
+            this.labelOutputWords.Name = "labelOutputWords";
+            this.labelOutputWords.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputWords.TabIndex = 22;
+            this.labelOutputWords.Text = "Words:";
+            // 
+            // labelOutputCharacters
+            // 
+            this.labelOutputCharacters.AutoSize = true;
+            this.labelOutputCharacters.Location = new System.Drawing.Point(4, 296);
+            this.labelOutputCharacters.Name = "labelOutputCharacters";
+            this.labelOutputCharacters.Size = new System.Drawing.Size(64, 13);
+            this.labelOutputCharacters.TabIndex = 21;
+            this.labelOutputCharacters.Text = "Cahracters: ";
+            // 
+            // labelOutput
+            // 
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Location = new System.Drawing.Point(4, 275);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(39, 13);
+            this.labelOutput.TabIndex = 20;
+            this.labelOutput.Text = "Output";
+            // 
             // labelPocetZnakov
             // 
             this.labelPocetZnakov.AutoSize = true;
             this.labelPocetZnakov.Location = new System.Drawing.Point(5, 176);
             this.labelPocetZnakov.Name = "labelPocetZnakov";
-            this.labelPocetZnakov.Size = new System.Drawing.Size(76, 13);
+            this.labelPocetZnakov.Size = new System.Drawing.Size(112, 13);
             this.labelPocetZnakov.TabIndex = 19;
-            this.labelPocetZnakov.Text = "Pocet znakov:";
+            this.labelPocetZnakov.Text = "Number of characters:";
             // 
             // labelPocetViet
             // 
             this.labelPocetViet.AutoSize = true;
             this.labelPocetViet.Location = new System.Drawing.Point(5, 215);
             this.labelPocetViet.Name = "labelPocetViet";
-            this.labelPocetViet.Size = new System.Drawing.Size(58, 13);
+            this.labelPocetViet.Size = new System.Drawing.Size(111, 13);
             this.labelPocetViet.TabIndex = 18;
-            this.labelPocetViet.Text = "Pocet viet:";
+            this.labelPocetViet.Text = "Number of sentences:";
             // 
             // labelPocetRiadkov
             // 
             this.labelPocetRiadkov.AutoSize = true;
             this.labelPocetRiadkov.Location = new System.Drawing.Point(5, 202);
             this.labelPocetRiadkov.Name = "labelPocetRiadkov";
-            this.labelPocetRiadkov.Size = new System.Drawing.Size(76, 13);
+            this.labelPocetRiadkov.Size = new System.Drawing.Size(86, 13);
             this.labelPocetRiadkov.TabIndex = 17;
-            this.labelPocetRiadkov.Text = "Pocet riadkov:";
+            this.labelPocetRiadkov.Text = "Number of liens: ";
             // 
-            // labelPocetSlov
+            // labelNumberOfWords
             // 
-            this.labelPocetSlov.AutoSize = true;
-            this.labelPocetSlov.Location = new System.Drawing.Point(5, 189);
-            this.labelPocetSlov.Name = "labelPocetSlov";
-            this.labelPocetSlov.Size = new System.Drawing.Size(63, 13);
-            this.labelPocetSlov.TabIndex = 16;
-            this.labelPocetSlov.Text = "Pocet slov: ";
+            this.labelNumberOfWords.AutoSize = true;
+            this.labelNumberOfWords.Location = new System.Drawing.Point(5, 189);
+            this.labelNumberOfWords.Name = "labelNumberOfWords";
+            this.labelNumberOfWords.Size = new System.Drawing.Size(90, 13);
+            this.labelNumberOfWords.TabIndex = 16;
+            this.labelNumberOfWords.Text = "Number of words:";
             // 
             // buttonCopy
             // 
@@ -161,50 +206,50 @@
             this.buttonCopy.Name = "buttonCopy";
             this.buttonCopy.Size = new System.Drawing.Size(144, 23);
             this.buttonCopy.TabIndex = 15;
-            this.buttonCopy.Text = "Vytvor kopiu vstupu";
+            this.buttonCopy.Text = "Create copy of input";
             this.buttonCopy.UseVisualStyleBackColor = true;
             this.buttonCopy.Click += new System.EventHandler(this.buttonCopy_Click);
             // 
-            // buttonAplikujNastavenia
+            // buttonApplySettings
             // 
-            this.buttonAplikujNastavenia.Location = new System.Drawing.Point(3, 134);
-            this.buttonAplikujNastavenia.Name = "buttonAplikujNastavenia";
-            this.buttonAplikujNastavenia.Size = new System.Drawing.Size(144, 23);
-            this.buttonAplikujNastavenia.TabIndex = 14;
-            this.buttonAplikujNastavenia.Text = "Aplikuj nastavenia";
-            this.buttonAplikujNastavenia.UseVisualStyleBackColor = true;
-            this.buttonAplikujNastavenia.Click += new System.EventHandler(this.buttonAplikujNastavenia_Click);
+            this.buttonApplySettings.Location = new System.Drawing.Point(3, 134);
+            this.buttonApplySettings.Name = "buttonApplySettings";
+            this.buttonApplySettings.Size = new System.Drawing.Size(144, 23);
+            this.buttonApplySettings.TabIndex = 14;
+            this.buttonApplySettings.Text = "Apply settings";
+            this.buttonApplySettings.UseVisualStyleBackColor = true;
+            this.buttonApplySettings.Click += new System.EventHandler(this.buttonAplikujNastavenia_Click);
             // 
             // checkBoxSpacesAndPunctuation
             // 
             this.checkBoxSpacesAndPunctuation.AutoSize = true;
-            this.checkBoxSpacesAndPunctuation.Location = new System.Drawing.Point(13, 111);
+            this.checkBoxSpacesAndPunctuation.Location = new System.Drawing.Point(7, 110);
             this.checkBoxSpacesAndPunctuation.Name = "checkBoxSpacesAndPunctuation";
-            this.checkBoxSpacesAndPunctuation.Size = new System.Drawing.Size(136, 17);
+            this.checkBoxSpacesAndPunctuation.Size = new System.Drawing.Size(142, 17);
             this.checkBoxSpacesAndPunctuation.TabIndex = 13;
-            this.checkBoxSpacesAndPunctuation.Text = "Medzery a interpunkciu";
+            this.checkBoxSpacesAndPunctuation.Text = "Spaces adn punctuation";
             this.checkBoxSpacesAndPunctuation.UseVisualStyleBackColor = true;
             this.checkBoxSpacesAndPunctuation.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
             // checkBoxEmptyLines
             // 
             this.checkBoxEmptyLines.AutoSize = true;
-            this.checkBoxEmptyLines.Location = new System.Drawing.Point(13, 87);
+            this.checkBoxEmptyLines.Location = new System.Drawing.Point(7, 86);
             this.checkBoxEmptyLines.Name = "checkBoxEmptyLines";
-            this.checkBoxEmptyLines.Size = new System.Drawing.Size(96, 17);
+            this.checkBoxEmptyLines.Size = new System.Drawing.Size(79, 17);
             this.checkBoxEmptyLines.TabIndex = 12;
-            this.checkBoxEmptyLines.Text = "Prazdne riadky";
+            this.checkBoxEmptyLines.Text = "Empty lines";
             this.checkBoxEmptyLines.UseVisualStyleBackColor = true;
             this.checkBoxEmptyLines.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
             // checkBoxDiacritics
             // 
             this.checkBoxDiacritics.AutoSize = true;
-            this.checkBoxDiacritics.Location = new System.Drawing.Point(13, 63);
+            this.checkBoxDiacritics.Location = new System.Drawing.Point(7, 62);
             this.checkBoxDiacritics.Name = "checkBoxDiacritics";
-            this.checkBoxDiacritics.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxDiacritics.Size = new System.Drawing.Size(69, 17);
             this.checkBoxDiacritics.TabIndex = 11;
-            this.checkBoxDiacritics.Text = "Diakritiku";
+            this.checkBoxDiacritics.Text = "Diacritics";
             this.checkBoxDiacritics.UseVisualStyleBackColor = true;
             this.checkBoxDiacritics.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
@@ -213,9 +258,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(4, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Odstranit:";
+            this.label1.Text = "Remove:";
             // 
             // label2
             // 
@@ -231,26 +276,26 @@
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.Controls.Add(this.textBoxKontrola);
+            this.panel2.Controls.Add(this.textBoxTextCheck);
             this.panel2.Location = new System.Drawing.Point(150, 52);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(434, 345);
             this.panel2.TabIndex = 4;
             // 
-            // textBoxKontrola
+            // textBoxTextCheck
             // 
-            this.textBoxKontrola.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxTextCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxKontrola.Location = new System.Drawing.Point(0, 0);
-            this.textBoxKontrola.Multiline = true;
-            this.textBoxKontrola.Name = "textBoxKontrola";
-            this.textBoxKontrola.ReadOnly = true;
-            this.textBoxKontrola.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxKontrola.Size = new System.Drawing.Size(431, 342);
-            this.textBoxKontrola.TabIndex = 0;
-            this.textBoxKontrola.TabStop = false;
-            this.textBoxKontrola.WordWrap = false;
+            this.textBoxTextCheck.Location = new System.Drawing.Point(0, 0);
+            this.textBoxTextCheck.Multiline = true;
+            this.textBoxTextCheck.Name = "textBoxTextCheck";
+            this.textBoxTextCheck.ReadOnly = true;
+            this.textBoxTextCheck.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxTextCheck.Size = new System.Drawing.Size(431, 342);
+            this.textBoxTextCheck.TabIndex = 0;
+            this.textBoxTextCheck.TabStop = false;
+            this.textBoxTextCheck.WordWrap = false;
             // 
             // progressBar1
             // 
@@ -267,51 +312,6 @@
             this.labelPercent.Size = new System.Drawing.Size(24, 13);
             this.labelPercent.TabIndex = 21;
             this.labelPercent.Text = "0 %";
-            // 
-            // labelOutput
-            // 
-            this.labelOutput.AutoSize = true;
-            this.labelOutput.Location = new System.Drawing.Point(4, 275);
-            this.labelOutput.Name = "labelOutput";
-            this.labelOutput.Size = new System.Drawing.Size(39, 13);
-            this.labelOutput.TabIndex = 20;
-            this.labelOutput.Text = "Output";
-            // 
-            // labelOutputCharacters
-            // 
-            this.labelOutputCharacters.AutoSize = true;
-            this.labelOutputCharacters.Location = new System.Drawing.Point(4, 296);
-            this.labelOutputCharacters.Name = "labelOutputCharacters";
-            this.labelOutputCharacters.Size = new System.Drawing.Size(64, 13);
-            this.labelOutputCharacters.TabIndex = 21;
-            this.labelOutputCharacters.Text = "Cahracters: ";
-            // 
-            // labelOutputWords
-            // 
-            this.labelOutputWords.AutoSize = true;
-            this.labelOutputWords.Location = new System.Drawing.Point(5, 309);
-            this.labelOutputWords.Name = "labelOutputWords";
-            this.labelOutputWords.Size = new System.Drawing.Size(41, 13);
-            this.labelOutputWords.TabIndex = 22;
-            this.labelOutputWords.Text = "Words:";
-            // 
-            // labelOutputSentences
-            // 
-            this.labelOutputSentences.AutoSize = true;
-            this.labelOutputSentences.Location = new System.Drawing.Point(4, 322);
-            this.labelOutputSentences.Name = "labelOutputSentences";
-            this.labelOutputSentences.Size = new System.Drawing.Size(61, 13);
-            this.labelOutputSentences.TabIndex = 23;
-            this.labelOutputSentences.Text = "Sentences:";
-            // 
-            // labelOutputLines
-            // 
-            this.labelOutputLines.AutoSize = true;
-            this.labelOutputLines.Location = new System.Drawing.Point(4, 335);
-            this.labelOutputLines.Name = "labelOutputLines";
-            this.labelOutputLines.Size = new System.Drawing.Size(35, 13);
-            this.labelOutputLines.TabIndex = 24;
-            this.labelOutputLines.Text = "Lines:";
             // 
             // panel3
             // 
@@ -360,13 +360,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBoxKontrola;
+        private System.Windows.Forms.TextBox textBoxTextCheck;
         internal System.Windows.Forms.Label labelPocetZnakov;
         internal System.Windows.Forms.Label labelPocetRiadkov;
         internal System.Windows.Forms.Label labelPocetViet;
-        internal System.Windows.Forms.Label labelPocetSlov;
+        internal System.Windows.Forms.Label labelNumberOfWords;
         internal System.Windows.Forms.ProgressBar progressBar1;
-        internal System.Windows.Forms.Button buttonAplikujNastavenia;
+        internal System.Windows.Forms.Button buttonApplySettings;
         internal System.Windows.Forms.Label labelPercent;
         internal System.Windows.Forms.CheckBox checkBoxSpacesAndPunctuation;
         internal System.Windows.Forms.CheckBox checkBoxEmptyLines;

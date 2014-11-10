@@ -21,7 +21,7 @@ namespace IReSoft_priklad_v2
         public void update(Progress p)
         {
             updateContorlProperty(form.labelPocetRiadkov, "Text", "Pocet riadkov: " + p.numOfLines);
-            updateContorlProperty(form.labelPocetSlov, "Text", "Pocet slov: " + p.numOfWords);
+            updateContorlProperty(form.labelNumberOfWords, "Text", "Pocet slov: " + p.numOfWords);
             updateContorlProperty(form.labelPocetZnakov, "Text", "Pocet znakov: " + p.numOfChars);
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
