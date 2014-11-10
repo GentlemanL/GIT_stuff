@@ -23,7 +23,8 @@ namespace IReSoft_priklad_v2
         {
             panel1.Visible = false;
             panel2.Visible = false;
-            label2.Visible = false;
+            panel3.Visible = false;
+            buttonAplikujNastavenia.Enabled = false;
             checkBoxes = new CheckBox[] { checkBoxDiacritics, checkBoxEmptyLines, checkBoxSpacesAndPunctuation };
         }
 
@@ -34,6 +35,7 @@ namespace IReSoft_priklad_v2
         private string path;
         private int progressBarModifier = 0;
         private Thread thread;
+        private int operationNumber = 0;
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -49,7 +51,7 @@ namespace IReSoft_priklad_v2
                     //zlepsit mozno foreach
                     panel1.Visible = true;
                     panel2.Visible = true;
-                    label2.Visible = true;
+                    panel3.Visible = true;
 
                     inputText = System.IO.File.ReadAllText(path);
 
@@ -85,6 +87,7 @@ namespace IReSoft_priklad_v2
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
             panel1.Enabled = false;
+            operationNumber = 0;
             progressBar1.Value = 0;
             labelPercent.Text = "0 %";
 
@@ -99,7 +102,8 @@ namespace IReSoft_priklad_v2
                     {
                         if (checkBoxes[i].Checked)
                         {
-                            editedText = op[i].Run(editedText, u, progressBarModifier);
+                            operationNumber++;
+                            editedText = op[i].Run(editedText, u, progressBarModifier, operationNumber);
                             SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                         }
                     }
@@ -138,6 +142,8 @@ namespace IReSoft_priklad_v2
             {
                 progressBarModifier--;
             }
+            if (progressBarModifier == 0) buttonAplikujNastavenia.Enabled = false;
+            else buttonAplikujNastavenia.Enabled = true;
         }
     }
 }

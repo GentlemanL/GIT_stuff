@@ -16,6 +16,8 @@ namespace IReSoft_priklad_v2
             numOfWords = pr.numOfWords;
             numOfChars = pr.numOfChars;
             progressBarValue = pr.progressBarValue;
+            totalProgressValue = pr.totalProgressValue;
+            numOfLinesAfterRemove = pr.numOfLinesAfterRemove;
         }
 
         public Progress() { }
@@ -25,13 +27,7 @@ namespace IReSoft_priklad_v2
         public int numOfWords { get; set; }
         public int numOfChars { get; set; }
         public int progressBarValue { get; set; }
-
-        private int progressValue;
-        public int ProgressValue
-        {
-            get { return progressValue; }
-            set { progressValue = value; }
-        }
-
+        public int totalProgressValue { get; set; }
+        public int numOfLinesAfterRemove { get; set; }
     }
 }

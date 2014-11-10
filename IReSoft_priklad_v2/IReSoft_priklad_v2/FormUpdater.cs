@@ -35,6 +35,9 @@ namespace IReSoft_priklad_v2
             {
                 MethodInvoker action = () => form.panel1.Enabled = true;
                 form.panel1.BeginInvoke(action);
+
+                p.progressBarValue = 0;
+                //p.numOfLinesAfterRemove = aDiff.text.Split('\n').Length;
             }
         }
 

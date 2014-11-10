@@ -20,9 +20,9 @@ namespace IReSoft_priklad_v2
 
         private char tmp;
         //private static char[] arrayWordChars = Enumerable.Range('a', 'z' - 'a' + 1).SelectMany(i => new char[] {(char)i, Char.ToUpper((char)i)}).ToArray();
-        private HashSet<char> whiteSpaceChars = new HashSet<char> {'\n', '\r', ' ', '\t' };
+        private HashSet<char> whiteSpaceChars = new HashSet<char> { '\n', '\r', ' ', '\t' };
         private HashSet<char> sentenceChars = new HashSet<char> { '.', '?', '!' };
-        private HashSet<char> lineChars = new HashSet<char> { '\n'};
+        private HashSet<char> lineChars = new HashSet<char> { '\n' };
 
         private bool isWord(char c)
         {
@@ -36,15 +36,18 @@ namespace IReSoft_priklad_v2
             }
             else if (lineChars.Contains(c))
             {
-                return false;                
+                return false;
             }
             return true;
         }
 
-        public abstract string Run(string s, IUpdater u, int numOfOps);
+        // bolo by lepsie keby sa numOfOps neposielal stale ael iba sa vedel z niekade dostat ked treba
+        public abstract string Run(string s, IUpdater u, int numOfOps, int opNum);
 
-        protected void setProgres(string s, int index, IUpdater update, int numOfOps)
+        protected void setProgres(string s, int index, IUpdater update, int numOfOps, int opNum)
         {
+            pr.totalProgressValue = s.Length * numOfOps;
+
             pr.numOfChars++;
             if (index == 0)
             {
@@ -56,12 +59,19 @@ namespace IReSoft_priklad_v2
             if (sentenceChars.Contains(s[index]) && !sentenceChars.Contains(tmp)) pr.numOfSentences++;
             if ((whiteSpaceChars.Contains(s[index]) || sentenceChars.Contains(s[index])) && isWord(tmp)) pr.numOfWords++;
 
-            //treba spravit aby sa scitavaly progresy operacii
-            pr.progressBarValue = ((index+1)*100 / s.Length)/;
-            if (index % 100 == 0 || index == s.Length-1)
+            // treba spravit aby sa scitavaly progresy operacii
+            // nejaka chyba - ak uz bola operacia spravena tak sa neda spravit znova 
+            pr.progressBarValue = ((index + 1 + (s.Length * (opNum - 1))) * 100 / (s.Length * numOfOps));
+            //pr.progressBarValue = ((index+1)*100 / s.Length);
+
+            if (index % 100 == 0 || index == s.Length - 1)
             {
                 update.update(pr);
             }
+               /* if (pr.progressBarValue == 100)
+                {
+                    pr.progressBarValue = 0;
+                }*/
         }
     }
 }

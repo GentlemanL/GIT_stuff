@@ -10,7 +10,7 @@ namespace IReSoft_priklad_v2
     public class RemoveSpacesAndPunctuation : Operation
     {
 
-        public override string Run(string s, IUpdater u, int numOfops)
+        public override string Run(string s, IUpdater u, int numOfops, int opNum)
         {
             string returnString = string.Empty;
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
@@ -22,7 +22,7 @@ namespace IReSoft_priklad_v2
                 {
                     returnString += s[i];
                 }
-                setProgres(s, i, u, numOfops);
+                setProgres(s, i, u, numOfops, opNum);
             }
             return returnString;
         }

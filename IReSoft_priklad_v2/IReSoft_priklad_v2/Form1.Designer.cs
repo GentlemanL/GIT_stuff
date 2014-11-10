@@ -32,10 +32,6 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.toolStripStatusPercentLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelPocetZnakov = new System.Windows.Forms.Label();
             this.labelPocetViet = new System.Windows.Forms.Label();
@@ -52,10 +48,16 @@
             this.textBoxKontrola = new System.Windows.Forms.TextBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.labelPercent = new System.Windows.Forms.Label();
+            this.labelOutput = new System.Windows.Forms.Label();
+            this.labelOutputCharacters = new System.Windows.Forms.Label();
+            this.labelOutputWords = new System.Windows.Forms.Label();
+            this.labelOutputSentences = new System.Windows.Forms.Label();
+            this.labelOutputLines = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -64,7 +66,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(588, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(584, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -93,38 +95,13 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1,
-            this.toolStripStatusPercentLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 424);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(588, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(52, 17);
-            this.toolStripStatusLabel1.Text = "Progress";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-            // 
-            // toolStripStatusPercentLabel
-            // 
-            this.toolStripStatusPercentLabel.Name = "toolStripStatusPercentLabel";
-            this.toolStripStatusPercentLabel.Size = new System.Drawing.Size(26, 17);
-            this.toolStripStatusPercentLabel.Text = "0 %";
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelOutputLines);
+            this.panel1.Controls.Add(this.labelOutputSentences);
+            this.panel1.Controls.Add(this.labelOutputWords);
+            this.panel1.Controls.Add(this.labelOutputCharacters);
+            this.panel1.Controls.Add(this.labelOutput);
             this.panel1.Controls.Add(this.labelPocetZnakov);
             this.panel1.Controls.Add(this.labelPocetViet);
             this.panel1.Controls.Add(this.labelPocetRiadkov);
@@ -243,7 +220,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 28);
+            this.label2.Location = new System.Drawing.Point(6, 7);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 3;
@@ -251,28 +228,32 @@
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.textBoxKontrola);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(150, 44);
-            this.panel2.MinimumSize = new System.Drawing.Size(0, 380);
+            this.panel2.Location = new System.Drawing.Point(150, 52);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(438, 380);
+            this.panel2.Size = new System.Drawing.Size(434, 345);
             this.panel2.TabIndex = 4;
             // 
             // textBoxKontrola
             // 
-            this.textBoxKontrola.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxKontrola.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxKontrola.Location = new System.Drawing.Point(0, 0);
             this.textBoxKontrola.Multiline = true;
             this.textBoxKontrola.Name = "textBoxKontrola";
             this.textBoxKontrola.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxKontrola.Size = new System.Drawing.Size(438, 380);
+            this.textBoxKontrola.Size = new System.Drawing.Size(431, 342);
             this.textBoxKontrola.TabIndex = 0;
             this.textBoxKontrola.TabStop = false;
+            this.textBoxKontrola.WordWrap = false;
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(210, 27);
+            this.progressBar1.Location = new System.Drawing.Point(59, 5);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(310, 17);
             this.progressBar1.TabIndex = 20;
@@ -280,37 +261,90 @@
             // labelPercent
             // 
             this.labelPercent.AutoSize = true;
-            this.labelPercent.Location = new System.Drawing.Point(526, 28);
+            this.labelPercent.Location = new System.Drawing.Point(387, 7);
             this.labelPercent.Name = "labelPercent";
             this.labelPercent.Size = new System.Drawing.Size(24, 13);
             this.labelPercent.TabIndex = 21;
             this.labelPercent.Text = "0 %";
             // 
+            // labelOutput
+            // 
+            this.labelOutput.AutoSize = true;
+            this.labelOutput.Location = new System.Drawing.Point(4, 275);
+            this.labelOutput.Name = "labelOutput";
+            this.labelOutput.Size = new System.Drawing.Size(39, 13);
+            this.labelOutput.TabIndex = 20;
+            this.labelOutput.Text = "Output";
+            // 
+            // labelOutputCharacters
+            // 
+            this.labelOutputCharacters.AutoSize = true;
+            this.labelOutputCharacters.Location = new System.Drawing.Point(4, 296);
+            this.labelOutputCharacters.Name = "labelOutputCharacters";
+            this.labelOutputCharacters.Size = new System.Drawing.Size(64, 13);
+            this.labelOutputCharacters.TabIndex = 21;
+            this.labelOutputCharacters.Text = "Cahracters: ";
+            // 
+            // labelOutputWords
+            // 
+            this.labelOutputWords.AutoSize = true;
+            this.labelOutputWords.Location = new System.Drawing.Point(5, 309);
+            this.labelOutputWords.Name = "labelOutputWords";
+            this.labelOutputWords.Size = new System.Drawing.Size(41, 13);
+            this.labelOutputWords.TabIndex = 22;
+            this.labelOutputWords.Text = "Words:";
+            // 
+            // labelOutputSentences
+            // 
+            this.labelOutputSentences.AutoSize = true;
+            this.labelOutputSentences.Location = new System.Drawing.Point(4, 322);
+            this.labelOutputSentences.Name = "labelOutputSentences";
+            this.labelOutputSentences.Size = new System.Drawing.Size(61, 13);
+            this.labelOutputSentences.TabIndex = 23;
+            this.labelOutputSentences.Text = "Sentences:";
+            // 
+            // labelOutputLines
+            // 
+            this.labelOutputLines.AutoSize = true;
+            this.labelOutputLines.Location = new System.Drawing.Point(4, 335);
+            this.labelOutputLines.Name = "labelOutputLines";
+            this.labelOutputLines.Size = new System.Drawing.Size(35, 13);
+            this.labelOutputLines.TabIndex = 24;
+            this.labelOutputLines.Text = "Lines:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.labelPercent);
+            this.panel3.Controls.Add(this.progressBar1);
+            this.panel3.Controls.Add(this.label2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(150, 24);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(434, 26);
+            this.panel3.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 446);
-            this.Controls.Add(this.labelPercent);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(584, 397);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(250, 484);
+            this.MinimumSize = new System.Drawing.Size(600, 435);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,16 +356,12 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBoxKontrola;
         internal System.Windows.Forms.Label labelPocetZnakov;
         internal System.Windows.Forms.Label labelPocetRiadkov;
-        internal System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
-        internal System.Windows.Forms.ToolStripStatusLabel toolStripStatusPercentLabel;
         internal System.Windows.Forms.Label labelPocetViet;
         internal System.Windows.Forms.Label labelPocetSlov;
         internal System.Windows.Forms.ProgressBar progressBar1;
@@ -342,6 +372,12 @@
         internal System.Windows.Forms.CheckBox checkBoxDiacritics;
         internal System.Windows.Forms.Button buttonCopy;
         internal System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Label labelOutputLines;
+        internal System.Windows.Forms.Label labelOutputSentences;
+        internal System.Windows.Forms.Label labelOutputWords;
+        internal System.Windows.Forms.Label labelOutputCharacters;
+        private System.Windows.Forms.Label labelOutput;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 
