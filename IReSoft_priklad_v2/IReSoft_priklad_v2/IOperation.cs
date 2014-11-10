@@ -9,7 +9,7 @@ namespace IReSoft_priklad_v2
 {
     public interface IOperation
     {
-        string Run(string s, IUpdater u);
+        string Run(string s, IUpdater u, int numOfOps);
 
        // Progress GetProgress();
     }

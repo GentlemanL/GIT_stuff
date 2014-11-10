@@ -32,7 +32,7 @@ namespace IReSoft_priklad_v2
         private string inputText;
         private string editedText;
         private string path;
-        private int progressBarModifier = 1;
+        private int progressBarModifier = 0;
         private Thread thread;
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,6 +45,8 @@ namespace IReSoft_priklad_v2
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     path = ofd.FileName;
+
+                    //zlepsit mozno foreach
                     panel1.Visible = true;
                     panel2.Visible = true;
                     label2.Visible = true;
@@ -59,7 +61,7 @@ namespace IReSoft_priklad_v2
             {
                 MessageBox.Show(ex.Message.ToString(), "Error - este neviem aky", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally // mozno prec
+            finally // mozno prec - zatial nanic
             {
             }
         }
@@ -82,12 +84,9 @@ namespace IReSoft_priklad_v2
 
         private void buttonAplikujNastavenia_Click(object sender, EventArgs e)
         {
-            /*buttonAplikujNastavenia.Enabled = false;
-            foreach (var item in checkBoxes)
-            {
-                item.Enabled = false;
-            }*/
             panel1.Enabled = false;
+            progressBar1.Value = 0;
+            labelPercent.Text = "0 %";
 
             if (inputText.Length != 0)
             {
@@ -100,16 +99,11 @@ namespace IReSoft_priklad_v2
                     {
                         if (checkBoxes[i].Checked)
                         {
-                            editedText = op[i].Run(editedText, u);
+                            editedText = op[i].Run(editedText, u, progressBarModifier);
                             SetControlPropertyThreadSafe(textBoxKontrola, "Text", editedText);
                         }
                     }
-
                     createOutput(editedText);
-                    /*foreach (var item in checkBoxes)
-                    {
-                        item.Enabled = true;
-                    }*/
                 });
                 thread.IsBackground = true;
                 thread.Start();
@@ -130,6 +124,19 @@ namespace IReSoft_priklad_v2
             else
             {
                 control.GetType().InvokeMember(propertyName, BindingFlags.SetProperty, null, control, new object[] { propertyValue });
+            }
+        }
+
+        private void checkBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            CheckBox cb = sender as CheckBox;
+            if (cb.Checked == true)
+            {
+                progressBarModifier++;
+            }
+            else
+            {
+                progressBarModifier--;
             }
         }
     }

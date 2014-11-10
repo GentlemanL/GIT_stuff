@@ -25,6 +25,7 @@ namespace IReSoft_priklad_v2
             updateContorlProperty(form.labelPocetZnakov, "Text", "Pocet znakov: " + p.numOfChars);
             updateContorlProperty(form.labelPocetViet, "Text", "Pocet viet: " + p.numOfSentences);
 
+            //progress bar ide hned
             if (!(p.progressBarValue == 100))
                 updateContorlProperty(form.progressBar1, "Value", p.progressBarValue + 1);
             updateContorlProperty(form.progressBar1, "Value", p.progressBarValue);

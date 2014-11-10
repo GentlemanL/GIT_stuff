@@ -9,7 +9,7 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveDiacritics : Operation
     {
-        public override string Run(string s, IUpdater u)
+        public override string Run(string s, IUpdater u, int numOfops)
         {
             // normalizacia sposobi ze mekcene a ciarky sa rataju ako dalsi znak - treba doriesit!!!
             s = s.Normalize(NormalizationForm.FormD);
@@ -23,12 +23,12 @@ namespace IReSoft_priklad_v2
                 }
                 if (i == 0)
                 {
-                    setProgres(s, i, u);
+                    setProgres(s, i, u, numOfops);
                 }
                 else
                 {
                     //sb vs s
-                    setProgres(s, i, u);
+                    setProgres(s, i, u, numOfops);
                 }
             }
             return sb.ToString();

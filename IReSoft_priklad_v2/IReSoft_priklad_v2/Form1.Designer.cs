@@ -207,6 +207,7 @@
             this.checkBoxSpacesAndPunctuation.TabIndex = 13;
             this.checkBoxSpacesAndPunctuation.Text = "Medzery a interpunkciu";
             this.checkBoxSpacesAndPunctuation.UseVisualStyleBackColor = true;
+            this.checkBoxSpacesAndPunctuation.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
             // checkBoxEmptyLines
             // 
@@ -217,6 +218,7 @@
             this.checkBoxEmptyLines.TabIndex = 12;
             this.checkBoxEmptyLines.Text = "Prazdne riadky";
             this.checkBoxEmptyLines.UseVisualStyleBackColor = true;
+            this.checkBoxEmptyLines.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
             // checkBoxDiacritics
             // 
@@ -227,6 +229,7 @@
             this.checkBoxDiacritics.TabIndex = 11;
             this.checkBoxDiacritics.Text = "Diakritiku";
             this.checkBoxDiacritics.UseVisualStyleBackColor = true;
+            this.checkBoxDiacritics.CheckStateChanged += new System.EventHandler(this.checkBox_CheckStateChanged);
             // 
             // label1
             // 

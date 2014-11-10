@@ -41,18 +41,9 @@ namespace IReSoft_priklad_v2
             return true;
         }
 
-        public abstract string Run(string s, IUpdater u);
+        public abstract string Run(string s, IUpdater u, int numOfOps);
 
-        /* public Progress GetProgress()
-         {
-             lock (pr)
-             {
-                 //pametat si do buducnosti - ACid
-                 return new Progress(pr);
-             }
-         }*/
-
-        protected void setProgres(string s, int index, IUpdater update)
+        protected void setProgres(string s, int index, IUpdater update, int numOfOps)
         {
             pr.numOfChars++;
             if (index == 0)
@@ -65,61 +56,12 @@ namespace IReSoft_priklad_v2
             if (sentenceChars.Contains(s[index]) && !sentenceChars.Contains(tmp)) pr.numOfSentences++;
             if ((whiteSpaceChars.Contains(s[index]) || sentenceChars.Contains(s[index])) && isWord(tmp)) pr.numOfWords++;
 
-            pr.progressBarValue = ((index+1)*100 / s.Length);
+            //treba spravit aby sa scitavaly progresy operacii
+            pr.progressBarValue = ((index+1)*100 / s.Length)/;
             if (index % 100 == 0 || index == s.Length-1)
             {
                 update.update(pr);
             }
         }
-
-        //protected void setProgres(char currentChar, char previousChar, IUpdater update)
-        //{
-        //    pr.numOfChars++;
-        //    //osetrit pocitanie slov, neratam slova za ktorymi neni medzera
-        //    // treba osetrit viac interpunkcnych znamienok po sebe 
-        //    if (currentChar == '.' || currentChar == '?' || currentChar == '!')
-        //    {
-        //        pr.numOfSentences++;
-        //        if (!flag)
-        //        {
-        //            flag = true;
-        //        }
-        //        else
-        //        {
-        //            flag = false;
-        //            pr.numOfWords++;
-        //        }
-        //    }
-        //    if (currentChar == '\n')
-        //    {
-        //        pr.numOfLines++;
-        //        if (!consecutiveEnter)
-        //        {
-        //            consecutiveEnter = false;
-
-        //            if (!flag)
-        //            {
-        //                flag = true;
-        //            }
-        //            else
-        //            {
-        //                flag = false;
-        //                pr.numOfWords++;
-        //            }
-        //        }
-        //    }
-        //    if (currentChar == ' ' && !(previousChar == ' ')) // co ak mam 10 medzier za sebou!? osetrit, tato podmienka neni dobra -- mozno posielat posledne 2 cahraktery
-        //    {
-        //        if (flag) { pr.numOfWords++; }
-        //        else { flag = true; }
-
-        //    }
-
-        //    if (pr.numOfLines == 0)
-        //    {
-        //        pr.numOfLines = 1;
-        //    }
-        //    update.update(pr);
-        //}
     }
 }

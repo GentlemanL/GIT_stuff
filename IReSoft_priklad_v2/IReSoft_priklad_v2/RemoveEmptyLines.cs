@@ -8,7 +8,7 @@ namespace IReSoft_priklad_v2
 {
     public class RemoveEmptyLines : Operation
     {
-        public override string Run(string s, IUpdater u)
+        public override string Run(string s, IUpdater u, int numOfOps)
         {
             string returnString = string.Empty;
             char tmp1 = s[0];
@@ -17,8 +17,8 @@ namespace IReSoft_priklad_v2
             {
                 if (i > 1) { tmp1 = s[i - 1]; }
                 if (i > 2) { tmp2 = s[i - 2]; }
-                if (s[i] == '\r' && tmp1 == '\n' && tmp2 == '\n') { setProgres(s, i, u); continue; }
-                else if (s[i] == '\n' && tmp1 == '\r' && tmp2 == '\n') { setProgres(s, i, u); continue; }
+                if (s[i] == '\r' && tmp1 == '\n' && tmp2 == '\n') { setProgres(s, i, u, numOfOps); continue; }
+                else if (s[i] == '\n' && tmp1 == '\r' && tmp2 == '\n') { setProgres(s, i, u, numOfOps); continue; }
                 else
                 {
                     returnString += s[i];
@@ -28,7 +28,7 @@ namespace IReSoft_priklad_v2
                 {
                     returnString.TrimEnd('\r', '\n');
                 }
-                setProgres(s, i, u);
+                setProgres(s, i, u, numOfOps);
             }
             return returnString;
         }
